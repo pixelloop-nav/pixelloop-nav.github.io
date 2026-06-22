@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Pixel Loop: Shortcut Topological Navigation with Pixel-Level Loops">
-  <meta name="keywords" content="Pixel Loop, Navigation, Topological, Loop Closure, Visual Navigation">
+  <meta name="description" content="PixelLoop: Shortcut Topological Navigation with Pixel-Level Loops">
+  <meta name="keywords" content="PixelLoop, Navigation, Topological, Loop Closure, Visual Navigation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PixelLoop: Shortcut Topological Navigation with Pixel-Level Loops</title>
 
@@ -35,20 +35,29 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Pixel Loop: Shortcut Topological Navigation with Pixel-Level Loops</h1>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">Accepted at the 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</span>
+            <h1 class="title is-1 publication-title">PixelLoop: Shortcut Topological Navigation with Pixel-Level Loops</h1>
+            <div style="margin-top: 15px;">
+              <span class="tag is-success is-medium"
+                    style="font-size: 1rem; padding: 0.8em 1.2em;">
+                Accepted at IEEE/RSJ IROS 2026
+              </span>
+
+              <!-- <div style="margin-top: 15px;">
+                <img src="./static/images/iros_logo.png"
+                    alt="IROS 2026"
+                    style="height:70px;">
+              </div> -->
             </div>
             <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=La1bvRsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Sarthak Chittawar</a><sup>1</sup><sup>†</sup>,</span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=te_Z68kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Vansh Garg</a><sup>1</sup>,</span>
+              <a href="https://vanshg1729.github.io/" target="_blank" rel="noopener noreferrer">Vansh Garg</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="" target="_blank" rel="noopener noreferrer">Aditya Vadali</a><sup>1</sup>,
+              <a href="">Aditya Vadali</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="" target="_blank" rel="noopener noreferrer">Krish Pandya</a><sup>1</sup>,
+              <a href="">Krish Pandya</a><sup>1</sup>,
             </span>
               <br>
             <span class="author-block">
@@ -66,6 +75,16 @@
             <span class="author-block"><sup>†</sup>Corresponding Author</span>
             <br>
             <span class="author-block"><sup>1</sup>Robotics Research Centre, IIIT Hyderabad</span>
+
+            <div style="margin-top: 20px;">
+              <img src="./static/images/rrc_logo.png"
+                  alt="Robotics Research Centre"
+                  style="height:80px; margin-right:25px; vertical-align:middle;">
+
+              <img src="./static/images/iiit_logo.jpg"
+                  alt="IIIT Hyderabad"
+                  style="height:80px; vertical-align:middle;">
+            </div>
           </div>
 
           <div class="column has-text-centered">
@@ -83,10 +102,10 @@
                 </a>
               </span>
               <span class="link-block">
-                <!-- Replace # with your Actual arXiv link when ready -->
-                <a href="#" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
+                <a class="button is-normal is-rounded is-dark"
+                  style="pointer-events: none; opacity: 0.85; cursor: default;">
                   <span class="icon">
-                      <i class="ai ai-arxiv"></i>
+                    <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv (Coming Soon)</span>
                 </a>
@@ -101,22 +120,22 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="#" target="_blank" rel="noopener noreferrer"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a class="button is-normal is-rounded is-dark"
+                  style="pointer-events: none; opacity: 0.85; cursor: default;">
                   <span class="icon">
-                      <i class="fab fa-github"></i>
+                    <i class="fab fa-github"></i>
                   </span>
                   <span>Code (Coming Soon)</span>
-                  </a>
+                </a>
               </span>
               <span class="link-block">
-                <!-- Replace # with your actual Dataset link -->
-                <a href="#" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
+                <a class="button is-normal is-rounded is-dark"
+                  style="pointer-events: none; opacity: 0.85; cursor: default;">
                   <span class="icon">
-                      <i class="far fa-images"></i>
+                    <i class="far fa-images"></i>
                   </span>
                   <span>Data (Coming Soon)</span>
-                  </a>
+                </a>
               </span>
             </div>
           </div>
@@ -130,7 +149,7 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body has-text-centered">
-        <img src="./static/images/teaser.png" alt="Teaser for Pixel Loop" width="100%" style="border-radius: 8px;">
+        <img src="./static/images/teaser.png" alt="Teaser for PixelLoop" width="100%" style="border-radius: 8px;">
         <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
           <strong>PixelLoop</strong> connects sparse image nodes with dense pixel-level loop closures, generating high-quality topological shortcuts for stable robot navigation.
         </h2>
@@ -153,7 +172,7 @@
             </p>
             <p>
               Building on recent denser topologies grounded in pixel-level, relative 3D geometry, we propose
-              <strong>Pixel Loop</strong> which introduces loop closures directly in pixel space. Unlike sparse
+              <strong>PixelLoop</strong> which introduces loop closures directly in pixel space. Unlike sparse
               image-level edges or pose-graph corrections in SLAM, our pixel-level closures act as dense topological
               shortcuts that alter planning connectivity and cost propagation rather than merely aligning coordinates.
               This dense connectivity enables stable any-point-to-any-point navigation and produces costmaps that align
@@ -161,7 +180,7 @@
             </p>
             <p>
               In particular, we showcase the distinct advantage of applying loop closures to fine-grained pixel
-              topologies rather than image-level topologies. Across extensive simulated experiments, Pixel Loop achieves
+              topologies rather than image-level topologies. Across extensive simulated experiments, PixelLoop achieves
               over 35% absolute improvement in both Success Rate and SPL compared to image-relative baselines, with the
               largest gains in scenarios requiring shortcut exploitation. Results are further validated through
               real-world mobile robot deployments, demonstrating that dense pixel-level loop closures provide a
@@ -190,7 +209,7 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">Methodology</h2>
           
-          <img src="./static/images/pipeline.png" alt="Pixel Loop Pipeline" width="100%" style="border-radius: 8px; margin-bottom: 20px;">
+          <img src="./static/images/pipeline.png" alt="PixelLoop Pipeline" width="100%" style="border-radius: 8px; margin-bottom: 20px;">
           
           <div class="content has-text-justified">
             <p>
@@ -297,7 +316,7 @@
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>@inproceedings{chittawar2026pixelloop,
-  title={Pixel Loop: Shortcut Topological Navigation with Pixel-Level Loops},
+  title={PixelLoop: Shortcut Topological Navigation with Pixel-Level Loops},
   author={Chittawar, Sarthak and Garg, Vansh and Vadali, Aditya and Pandya, Krish and Jayanti, Rohit and Garg, Sourav and Krishna, K Madhava},
   booktitle={Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
   year={2026}
