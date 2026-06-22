@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Pixel Loop: Shortcut Topological Navigation with Pixel-Level Loops">
+  <meta name="keywords" content="Pixel Loop, Navigation, Topological, Loop Closure, Visual Navigation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PixelLoop: Shortcut Topological Navigation with Pixel-Level Loops</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Pixel Loop: Shortcut Topological Navigation with Pixel-Level Loops</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Accepted at the 2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=La1bvRsAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Sarthak Chittawar</a><sup>1</sup><sup>†</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=te_Z68kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Vansh Garg</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="" target="_blank" rel="noopener noreferrer">Aditya Vadali</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="" target="_blank" rel="noopener noreferrer">Krish Pandya</a><sup>1</sup>,
+            </span>
+              <br>
+            <span class="author-block">
+              <a href="https://rjeye.github.io/" target="_blank" rel="noopener noreferrer">Rohit Jayanti</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://oravus.github.io/" target="_blank" rel="noopener noreferrer">Sourav Garg</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=QDuPGHwAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">K Madhava Krishna</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>†</sup>Corresponding Author</span>
+            <br>
+            <span class="author-block"><sup>1</sup>Robotics Research Centre, IIIT Hyderabad</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./static/PixelLoop.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <!-- Replace # with your Actual arXiv link when ready -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (Coming Soon)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <!-- Replace with your YouTube link later if you want, pointing to local for now -->
+                <a href="./static/videos/pixelloop_video.mp4" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <!-- Replace # with your actual Dataset link -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data (Coming Soon)</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser Video/Image -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body has-text-centered">
+        <img src="./static/images/teaser.png" alt="Teaser for Pixel Loop" width="100%" style="border-radius: 8px;">
+        <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
+          <strong>PixelLoop</strong> connects sparse image nodes with dense pixel-level loop closures, generating high-quality topological shortcuts for stable robot navigation.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Although topological mapping and navigation have been studied extensively, the specific role and downstream
+              effect of loop closures in purely topological representations has received relatively little attention.
+              Importantly, loop closure over topological maps is distinct from loop closure over globally referenced
+              trajectories and metric maps.
+            </p>
+            <p>
+              Building on recent denser topologies grounded in pixel-level, relative 3D geometry, we propose
+              <strong>Pixel Loop</strong> which introduces loop closures directly in pixel space. Unlike sparse
+              image-level edges or pose-graph corrections in SLAM, our pixel-level closures act as dense topological
+              shortcuts that alter planning connectivity and cost propagation rather than merely aligning coordinates.
+              This dense connectivity enables stable any-point-to-any-point navigation and produces costmaps that align
+              accurately with geometric shortest paths.
+            </p>
+            <p>
+              In particular, we showcase the distinct advantage of applying loop closures to fine-grained pixel
+              topologies rather than image-level topologies. Across extensive simulated experiments, Pixel Loop achieves
+              over 35% absolute improvement in both Success Rate and SPL compared to image-relative baselines, with the
+              largest gains in scenarios requiring shortcut exploitation. Results are further validated through
+              real-world mobile robot deployments, demonstrating that dense pixel-level loop closures provide a
+              practical and robust foundation for topological visual navigation.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered" style="margin-top: 40px;">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px;">
+            <video controls autoplay muted loop style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+              <source src="./static/videos/pixelloop_video.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <!--/ Paper video. -->
+
+      <!-- Methodology. -->
+      <div class="columns is-centered has-text-centered" style="margin-top: 40px;">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Methodology</h2>
+          
+          <img src="./static/images/pipeline.png" alt="Pixel Loop Pipeline" width="100%" style="border-radius: 8px; margin-bottom: 20px;">
+          
+          <div class="content has-text-justified">
+            <p>
+              In <b>PixelLoop</b>, we build an arbitrary start-to-goal navigation stack utilizing a 3D relative mapping representation. 
+              Our framework is built upon <b>MASt3R-Nav</b>, leveraging dense pixel correspondences to construct a relative-geometry grounded topological graph.
+            </p>
+            <p>
+              To expand beyond simple teach-and-repeat trajectories, we propose:
+            </p>
+            <ul>
+              <li><strong>Loop Detection</strong>: We identify temporally distant but geometrically overlapping views using SeqVLAD to find sequence-level candidate matches. We verify them through a bidirectional covisibility evaluation using UniFlowMatch (UFM).</li>
+              <li><strong>Pixel-level Loop Closures</strong>: Rather than modifying global metric maps mathematically or providing discrete image-node jumps, we insert these loops as zero-cost edges between densely grounded 3D pixel nodes across image pairs.</li>
+            </ul>
+            <p>
+              During execution, matching a query observation against this interconnected topological graph seamlessly stitches overlapping regions into a unified spatial manifold. This produces dense structured costmaps for shorter optimal paths and conditions a learned controller for waypoint prediction.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Methodology. -->
+
+      <!-- Quantitative Results. -->
+      <div class="columns is-centered has-text-centered" style="margin-top: 40px;">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Quantitative Results</h2>
+          <div class="content has-text-justified">
+            <p>
+              We benchmark PixelLoop against image-level (GNM) and object-level (ObjectReact) loop closure strategies under identical experimental settings. Incorporating pixel-level loop closures yields substantial improvements across all metrics, achieving significant absolute improvements in Success Rate (SR) and Success weighted by Path Length (SPL) without sacrificing performance.
+            </p>
+          </div>
+          
+          <h3 class="title is-5" style="margin-top: 30px;">Navigation performance across 73 simulated start-to-goal tasks</h3>
+          <div class="table-container">
+            <table class="table is-bordered is-narrow is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Loop Source</th>
+                  <th>SR &uarr;</th>
+                  <th>SPL-S &uarr;</th>
+                  <th>SPL-A &uarr;</th>
+                  <th>SSPL &uarr;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- PixelLoop (Ours) - Mega-row Group 1 (White background) -->
+                <tr>
+                  <td rowspan="3" style="vertical-align: middle; background-color: #ffffff;"><strong>PixelLoop (Ours)</strong></td>
+                  <td style="background-color: #ffffff;">GT-Covisibility</td><td style="background-color: #ffffff;">54.79</td><td style="background-color: #ffffff;">91.70</td><td style="background-color: #ffffff;">50.25</td><td style="background-color: #ffffff;">58.39</td>
+                </tr>
+                <tr><td style="background-color: #ffffff;">None</td><td style="background-color: #ffffff;">35.62</td><td style="background-color: #ffffff;">80.45</td><td style="background-color: #ffffff;">28.65</td><td style="background-color: #ffffff;">40.70</td></tr>
+                <tr style="background-color: #dbeafe;"><td style="background-color: #dbeafe;"><strong>SeqVLAD + UFM</strong></td><td style="background-color: #dbeafe;"><strong>68.49</strong></td><td style="background-color: #dbeafe;"><strong>91.15</strong></td><td style="background-color: #dbeafe;"><strong>62.43</strong></td><td style="background-color: #dbeafe;"><strong>73.97</strong></td></tr>
+                
+                <!-- GNM - Mega-row Group 2 (Light Gray background) -->
+                <tr>
+                  <td rowspan="3" style="vertical-align: middle; background-color: #f9f9f9;">GNM (HM3D)</td>
+                  <td style="background-color: #f9f9f9;">GT-Covisibility</td><td style="background-color: #f9f9f9;">24.66</td><td style="background-color: #f9f9f9;">70.50</td><td style="background-color: #f9f9f9;">17.38</td><td style="background-color: #f9f9f9;">18.40</td>
+                </tr>
+                <tr><td style="background-color: #f9f9f9;">None</td><td style="background-color: #f9f9f9;">20.55</td><td style="background-color: #f9f9f9;">64.80</td><td style="background-color: #f9f9f9;">13.32</td><td style="background-color: #f9f9f9;">15.95</td></tr>
+                <tr><td style="background-color: #f9f9f9;">SeqVLAD + UFM</td><td style="background-color: #f9f9f9;">27.40</td><td style="background-color: #f9f9f9;">76.97</td><td style="background-color: #f9f9f9;">21.09</td><td style="background-color: #f9f9f9;">22.44</td></tr>
+
+                <!-- GNM-Adapted - Mega-row Group 3 (White background) -->
+                <tr>
+                  <td rowspan="3" style="vertical-align: middle; background-color: #ffffff;">GNM-Adapted (HM3D)</td>
+                  <td style="background-color: #ffffff;">GT-Covisibility</td><td style="background-color: #ffffff;">32.88</td><td style="background-color: #ffffff;">83.56</td><td style="background-color: #ffffff;">27.47</td><td style="background-color: #ffffff;">28.01</td>
+                </tr>
+                <tr><td style="background-color: #ffffff;">None</td><td style="background-color: #ffffff;">17.81</td><td style="background-color: #ffffff;">75.28</td><td style="background-color: #ffffff;">13.41</td><td style="background-color: #ffffff;">16.95</td></tr>
+                <tr><td style="background-color: #ffffff;">SeqVLAD + UFM</td><td style="background-color: #ffffff;">32.88</td><td style="background-color: #ffffff;">83.97</td><td style="background-color: #ffffff;">27.61</td><td style="background-color: #ffffff;">28.56</td></tr>
+                
+                <!-- ObjectReact - Mega-row Group 4 (Light Gray background) -->
+                <tr>
+                  <td rowspan="3" style="vertical-align: middle; background-color: #f9f9f9;">ObjectReact</td>
+                  <td style="background-color: #f9f9f9;">GT-Covisibility</td><td style="background-color: #f9f9f9;">63.01</td><td style="background-color: #f9f9f9;">65.21</td><td style="background-color: #f9f9f9;">41.09</td><td style="background-color: #f9f9f9;">65.91</td>
+                </tr>
+                <tr><td style="background-color: #f9f9f9;">None</td><td style="background-color: #f9f9f9;">58.90</td><td style="background-color: #f9f9f9;">63.21</td><td style="background-color: #f9f9f9;">37.23</td><td style="background-color: #f9f9f9;">38.77</td></tr>
+                <tr><td style="background-color: #f9f9f9;">SeqVLAD + UFM</td><td style="background-color: #f9f9f9;">67.12</td><td style="background-color: #f9f9f9;">69.37</td><td style="background-color: #f9f9f9;">46.82</td><td style="background-color: #f9f9f9;">68.35</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!--/ Quantitative Results. -->
+
+      <!-- Results. -->
+      <div class="columns is-centered has-text-centered" style="margin-top: 40px;">
+        <div class="column is-full">
+          <h2 class="title is-3">Qualitative Results</h2>
+          
+          <div class="notification is-light" style="padding: 3rem; margin-top: 2rem;">
+            <p class="is-size-5">
+              <i class="fas fa-tools has-text-grey" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>
+              <strong>More qualitative results coming soon!</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Results. -->
+
+    </div>
+  </section>
+
+  <!-- BibTeX Section -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{chittawar2026pixelloop,
+  title={Pixel Loop: Shortcut Topological Navigation with Pixel-Level Loops},
+  author={Chittawar, Sarthak and Garg, Vansh and Vadali, Aditya and Pandya, Krish and Jayanti, Rohit and Garg, Sourav and Krishna, K Madhava},
+  booktitle={Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year={2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Website template borrowed from <a href="https://nerfies.github.io/" target="_blank" rel="noopener noreferrer">Nerfies</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
