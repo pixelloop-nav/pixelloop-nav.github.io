@@ -155,3 +155,18 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+.planning-cost-table {
+  font-size: 0.72rem;
+}
+
+.planning-cost-table th,
+.planning-cost-table td {
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap;
+}
+
+.planning-cost-table thead th {
+  background-color: #f5f7fb;
+}
