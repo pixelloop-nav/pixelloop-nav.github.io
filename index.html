@@ -373,20 +373,144 @@
       </div>
       <!--/ Quantitative Results. -->
 
-      <!-- Results. -->
-      <div class="columns is-centered has-text-centered" style="margin-top: 40px;">
-        <div class="column is-full">
-          <h2 class="title is-3">Qualitative Results</h2>
-          
-          <div class="notification is-light" style="padding: 3rem; margin-top: 2rem;">
-            <p class="is-size-5">
-              <i class="fas fa-tools has-text-grey" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>
-              <strong>More qualitative results coming soon!</strong>
-            </p>
+     <!-- Results / Presentation Slides -->
+<div class="columns is-centered has-text-centered" style="margin-top: 40px;">
+  <div class="column is-full">
+    <h2 class="title is-3">Presentation</h2>
+
+    <div class="slide-viewer">
+      <div class="slide-frame">
+        <canvas id="slide-canvas"></canvas>
+      </div>
+
+      <div class="slide-controls">
+        <button class="slide-button" id="prev-slide" aria-label="Previous slide">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="slide-info">
+          <span id="slide-number">1 / 30</span>
+          <div class="slide-progress">
+            <div id="slide-progress-bar"></div>
           </div>
         </div>
+
+        <button class="slide-button" id="next-slide" aria-label="Next slide">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
-      <!--/ Results. -->
+
+      <p class="is-size-7 has-text-grey slide-caption">
+        Slides from the IROS 2026 presentation · Auto-advances every 10 seconds
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs"
+        type="module"></script>
+
+<script type="module">
+  import * as pdfjsLib
+    from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs";
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs";
+
+  const pdfUrl = "./static/files/IROS%20Oral%20Presentation.pdf";
+
+  const canvas = document.getElementById("slide-canvas");
+  const ctx = canvas.getContext("2d");
+
+  const slideNumber = document.getElementById("slide-number");
+  const progressBar = document.getElementById("slide-progress-bar");
+
+  const prevButton = document.getElementById("prev-slide");
+  const nextButton = document.getElementById("next-slide");
+
+  let pdf = null;
+  let currentPage = 1;
+  let slideTimer = null;
+
+  async function renderSlide(pageNumber) {
+    const page = await pdf.getPage(pageNumber);
+
+    const container = document.querySelector(".slide-frame");
+
+    const baseViewport = page.getViewport({ scale: 1 });
+
+    const scale = Math.min(
+      container.clientWidth / baseViewport.width,
+      container.clientHeight / baseViewport.height
+    );
+
+    const viewport = page.getViewport({ scale });
+
+    const dpr = window.devicePixelRatio || 1;
+
+    canvas.width = viewport.width * dpr;
+    canvas.height = viewport.height * dpr;
+
+    canvas.style.width = `${viewport.width}px`;
+    canvas.style.height = `${viewport.height}px`;
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, viewport.width, viewport.height);
+
+    await page.render({
+      canvasContext: ctx,
+      viewport: viewport
+    }).promise;
+
+    slideNumber.textContent = `${pageNumber} / ${pdf.numPages}`;
+
+    progressBar.style.width =
+      `${(pageNumber / pdf.numPages) * 100}%`;
+  }
+
+  async function showSlide(pageNumber) {
+    if (!pdf) return;
+
+    if (pageNumber > pdf.numPages) {
+      pageNumber = 1;
+    }
+
+    if (pageNumber < 1) {
+      pageNumber = pdf.numPages;
+    }
+
+    currentPage = pageNumber;
+    await renderSlide(currentPage);
+  }
+
+  function resetTimer() {
+    clearInterval(slideTimer);
+
+    slideTimer = setInterval(() => {
+      showSlide(currentPage + 1);
+    }, 10000);
+  }
+
+  nextButton.addEventListener("click", () => {
+    showSlide(currentPage + 1);
+    resetTimer();
+  });
+
+  prevButton.addEventListener("click", () => {
+    showSlide(currentPage - 1);
+    resetTimer();
+  });
+
+  window.addEventListener("resize", () => {
+    renderSlide(currentPage);
+  });
+
+  pdf = await pdfjsLib.getDocument(pdfUrl).promise;
+
+  await showSlide(1);
+  resetTimer();
+</script>
 
     </div>
   </section>
