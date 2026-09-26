@@ -407,10 +407,7 @@
   </div>
 </div>
 
-<!-- PDF.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs"
-        type="module"></script>
-
+<!-- Presentation Slide Viewer -->
 <script type="module">
   import * as pdfjsLib
     from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs";
@@ -420,8 +417,16 @@
 
   const pdfUrl = "./static/files/IROS%20Oral%20Presentation.pdf";
 
+  // Slides that contain videos instead of the PDF slide image
+  const slideVideos = {
+    14: "./static/videos/Graph_Topology.mp4",
+    25: "./static/videos/RW_video.mp4"
+  };
+
   const canvas = document.getElementById("slide-canvas");
   const ctx = canvas.getContext("2d");
+
+  const slideFrame = document.querySelector(".slide-frame");
 
   const slideNumber = document.getElementById("slide-number");
   const progressBar = document.getElementById("slide-progress-bar");
@@ -429,20 +434,52 @@
   const prevButton = document.getElementById("prev-slide");
   const nextButton = document.getElementById("next-slide");
 
+  // Create video element for video slides
+  const video = document.createElement("video");
+
+  video.controls = true;
+  video.muted = true;
+  video.playsInline = true;
+  video.preload = "auto";
+
+  video.style.width = "100%";
+  video.style.height = "100%";
+  video.style.maxWidth = "100%";
+  video.style.maxHeight = "100%";
+  video.style.objectFit = "contain";
+  video.style.display = "none";
+
+  slideFrame.appendChild(video);
+
   let pdf = null;
   let currentPage = 1;
   let slideTimer = null;
 
+
+  // --------------------------------------------------
+  // Update slide number + progress bar
+  // --------------------------------------------------
+
+  function updateSlideInfo(pageNumber) {
+    slideNumber.textContent = `${pageNumber} / ${pdf.numPages}`;
+
+    progressBar.style.width =
+      `${(pageNumber / pdf.numPages) * 100}%`;
+  }
+
+
+  // --------------------------------------------------
+  // Render a normal PDF slide
+  // --------------------------------------------------
+
   async function renderSlide(pageNumber) {
     const page = await pdf.getPage(pageNumber);
-
-    const container = document.querySelector(".slide-frame");
 
     const baseViewport = page.getViewport({ scale: 1 });
 
     const scale = Math.min(
-      container.clientWidth / baseViewport.width,
-      container.clientHeight / baseViewport.height
+      slideFrame.clientWidth / baseViewport.width,
+      slideFrame.clientHeight / baseViewport.height
     );
 
     const viewport = page.getViewport({ scale });
@@ -462,16 +499,17 @@
       canvasContext: ctx,
       viewport: viewport
     }).promise;
-
-    slideNumber.textContent = `${pageNumber} / ${pdf.numPages}`;
-
-    progressBar.style.width =
-      `${(pageNumber / pdf.numPages) * 100}%`;
   }
+
+
+  // --------------------------------------------------
+  // Show a slide
+  // --------------------------------------------------
 
   async function showSlide(pageNumber) {
     if (!pdf) return;
 
+    // Loop around
     if (pageNumber > pdf.numPages) {
       pageNumber = 1;
     }
@@ -481,35 +519,93 @@
     }
 
     currentPage = pageNumber;
-    await renderSlide(currentPage);
-  }
 
-  function resetTimer() {
-    clearInterval(slideTimer);
+    // Stop any previous timer
+    clearTimeout(slideTimer);
 
-    slideTimer = setInterval(() => {
+    // Stop previous video
+    video.pause();
+    video.onended = null;
+    video.removeAttribute("src");
+    video.load();
+
+    updateSlideInfo(pageNumber);
+
+
+    // ------------------------------------------------
+    // VIDEO SLIDE
+    // ------------------------------------------------
+
+    if (slideVideos[pageNumber]) {
+
+      canvas.style.display = "none";
+      video.style.display = "block";
+
+      video.src = slideVideos[pageNumber];
+      video.currentTime = 0;
+
+      // Advance only when the video actually finishes
+      video.onended = () => {
+        showSlide(currentPage + 1);
+      };
+
+      try {
+        await video.play();
+      } catch (error) {
+        console.log("Video autoplay blocked:", error);
+      }
+
+      return;
+    }
+
+
+    // ------------------------------------------------
+    // NORMAL PDF SLIDE
+    // ------------------------------------------------
+
+    video.style.display = "none";
+    canvas.style.display = "block";
+
+    await renderSlide(pageNumber);
+
+    // Normal slides stay for 10 seconds
+    slideTimer = setTimeout(() => {
       showSlide(currentPage + 1);
     }, 10000);
   }
 
+
+  // --------------------------------------------------
+  // Manual controls
+  // --------------------------------------------------
+
   nextButton.addEventListener("click", () => {
     showSlide(currentPage + 1);
-    resetTimer();
   });
 
   prevButton.addEventListener("click", () => {
     showSlide(currentPage - 1);
-    resetTimer();
   });
 
+
+  // --------------------------------------------------
+  // Re-render on resize
+  // --------------------------------------------------
+
   window.addEventListener("resize", () => {
-    renderSlide(currentPage);
+    if (!slideVideos[currentPage]) {
+      renderSlide(currentPage);
+    }
   });
+
+
+  // --------------------------------------------------
+  // Load PDF and start
+  // --------------------------------------------------
 
   pdf = await pdfjsLib.getDocument(pdfUrl).promise;
 
   await showSlide(1);
-  resetTimer();
 </script>
 
     </div>
